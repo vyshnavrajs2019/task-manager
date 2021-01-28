@@ -5,6 +5,7 @@
 	padding: 0;
 	font-family: 'Arvo', serif;
 	font-size: 13px;
+	box-sizing: border-box;
 }
 
 @mixin align($isReverse) {
