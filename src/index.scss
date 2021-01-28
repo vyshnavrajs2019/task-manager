@@ -37,12 +37,13 @@
 }
 
 .flex {
-	display: flex;
 	&-row {
+		display: flex;
 		flex-direction: row;
 		@include align(false);
 	}
 	&-column {
+		display: flex;
 		flex-direction: column;
 		@include align(true);
 	}
