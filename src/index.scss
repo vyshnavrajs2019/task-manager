@@ -12,25 +12,25 @@
 		$v: 'h';
 		$h: 'v';
 	}
-	#{$v}-{
-		start {
+	&_#{$v}-{
+		&start {
 			align-items: flex-start;
 		}
-		center {
+		&center {
 			align-items: center;
 		}
-		end {
+		&end {
 			align-items: flex-end;
 		}
 	}
-	#{$h}-{
-		start {
+	&_#{$h}-{
+		&start {
 			justify-content: flex-start;
 		}
-		center {
+		&center {
 			justify-content: center;
 		}
-		end {
+		&end {
 			justify-content: flex-end;
 		}
 	}
@@ -40,8 +40,10 @@
 	display: flex;
 	&-row {
 		flex-direction: row;
+		@include align(false);
 	}
 	&-column {
 		flex-direction: column;
+		@include align(true);
 	}
 }
