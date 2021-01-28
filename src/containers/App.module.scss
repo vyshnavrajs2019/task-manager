@@ -5,6 +5,7 @@
 	@extend .flex-row_h-center;
 	background-color: #f3f3f3;
 	&Center {
+		padding: 1rem;
 		min-width: 720px;
 		max-width: 720px;
 		min-height: 100vh;
