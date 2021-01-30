@@ -5,13 +5,21 @@ import TaskForm from '../components/TaskForm';
 import Tasks from '../components/Tasks';
 import classes from './App.module.scss';
 import { priorities } from '../configurations/priorities';
+import { getTasks } from '../configurations/api';
 
 
 function App() {
 	const [search, setSearch] = useState('');
+	const [tasks, setTasks] = useState([]);
 
+	useEffect(() => {
+		getTasks()
+			.then(response => response.json())
+			.then(data => setTasks(data.tasks))
+			.catch(err => { alert('ERROR OCCURED'); console.log(err) })
+	}, []);
 
-	const tasks = priorities.map((priority, index) => <Tasks key={index} priority={priority} />);
+	const taskList = priorities.map((priority, index) => <Tasks key={index} priority={priority} tasks={tasks} />);
 
 	return (
 		<div className={classes.App}>
@@ -24,7 +32,7 @@ function App() {
 					<button type="button" className={classes.App__MenuButton}>Create Task</button>
 				</div>
 				<div className={classes.App__TasksContainer}>
-					{tasks}
+					{taskList}
 				</div>
 			</div>
 			<Modal component={TaskForm} title='Create Task' componentData={{}} />
