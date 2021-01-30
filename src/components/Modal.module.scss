@@ -1,0 +1,48 @@
+@import '../index.scss';
+
+.Modal {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #fff;
+	box-shadow: 0 0 2px #fff;
+	border: 1px solid #fff;
+	z-index: 100;
+	&__Header {
+		position: relative;
+		@extend .flex-row;
+		@extend .flex-row_v-end;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+		padding: 0.5rem;
+	}
+	&__Title {
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+		max-width: calc(100% - 35px);
+		& > b {
+			font-size: 15px;
+		}
+	}
+	&__Close {
+		background-color: #fff;
+		border: 1px solid #ccc;
+		height: 25px;
+		min-width: 25px;
+	}
+	&__Body {
+		margin: 0.5rem;
+	}
+	&Overlay {
+		position: fixed;
+		z-index: 50;
+		top: 0px;
+		left: 0px;
+		bottom: 0px;
+		right: 0px;
+		background-color: #000;
+		opacity: 0.25;
+	}
+}

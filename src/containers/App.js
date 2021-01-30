@@ -1,6 +1,7 @@
 import React from 'react';
-import Tasks from '../components/Tasks';
 
+import Modal from '../components/Modal';
+import Tasks from '../components/Tasks';
 import classes from './App.module.scss';
 
 const HIGH_PRIORITY = 'HIGH';
@@ -26,6 +27,7 @@ function App() {
 					{tasks}
 				</div>
 			</div>
+			<Modal />
 		</div>
 	);
 }
