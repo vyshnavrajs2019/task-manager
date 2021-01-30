@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Modal from '../components/Modal';
+import TaskForm from '../components/TaskForm';
 import Tasks from '../components/Tasks';
 import classes from './App.module.scss';
 
@@ -27,7 +28,7 @@ function App() {
 					{tasks}
 				</div>
 			</div>
-			<Modal />
+			<Modal component={TaskForm} title='Create Task' componentData={{}} />
 		</div>
 	);
 }

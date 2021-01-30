@@ -1,0 +1,18 @@
+.TaskForm {
+	border: 1px solid #ccc;
+	width: 350px;
+	&__Group {
+		margin: 1rem;
+	}
+	&__Input, &__SubmitButton {
+		padding: 0.5rem;
+		width: 100%;
+		border: 1px solid #ccc;
+		background-color: #fff;
+	}
+	&__SubmitButton {
+		&:hover {
+			background-color: #f3f3f3;
+		}
+	}
+}
