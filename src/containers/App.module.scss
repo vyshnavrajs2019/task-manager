@@ -35,4 +35,14 @@
 			background-color: #f3f3f3;
 		}
 	}
+	&__TasksContainer {
+		@extend .flex-row;
+		margin-top: 1rem;
+		& > * {
+			margin-right: 1rem;
+		}
+		& > *:last-child {
+			margin-right: 0rem;
+		}
+	}
 }

@@ -1,0 +1,7 @@
+@import '../index.scss';
+
+.Tasks {
+	@extend .flex-fill;
+	border: 1px solid #ccc;
+	padding: 0.5rem;
+}

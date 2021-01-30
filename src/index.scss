@@ -50,6 +50,9 @@
 		flex-direction: column;
 		@include align(true);
 	}
+	&-fill {
+		flex: 1;
+	}
 }
 
 h1 {
