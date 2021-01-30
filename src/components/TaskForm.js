@@ -10,7 +10,7 @@ const OWNER_NOT_DEFINED = '0';
 const PRIORITY_NOT_DEFINED = '0';
 const DUE_DATE_TIME_NOT_DEFINED = '';
 
-function TaskForm({ actionType, instanceData={} }) {
+function TaskForm({ actionType, instanceData={}, setShowModal }) {
 	let btnLabel = 'Create';
 	if (actionType === EDIT) {
 		btnLabel = 'Update';
@@ -59,6 +59,7 @@ function TaskForm({ actionType, instanceData={} }) {
 		}
 		const handler = actionType === EDIT ? updateTask : createTask;
 		handler(data);
+		setShowModal(false);
 	}
 
 	const priorityOptions = priorities.map(p => <option key={p.value} value={p.value}>{p.name}</option>);

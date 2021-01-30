@@ -9,6 +9,7 @@ import { getTasks } from '../configurations/api';
 
 
 function App() {
+	const [showModal, setShowModal] = useState(false);
 	const [search, setSearch] = useState('');
 	const [tasks, setTasks] = useState([]);
 
@@ -29,13 +30,13 @@ function App() {
 					<input className={classes.App__SearchInput} type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="Search..." />
 				</div>
 				<div className={classes.App__MenuHandler}>
-					<button type="button" className={classes.App__MenuButton}>Create Task</button>
+					<button onClick={() => setShowModal(true)} type="button" className={classes.App__MenuButton}>Create Task</button>
 				</div>
 				<div className={classes.App__TasksContainer}>
 					{taskList}
 				</div>
 			</div>
-			<Modal component={TaskForm} title='Create Task' componentData={{}} />
+			<Modal showModal={showModal} setShowModal={setShowModal} component={TaskForm} title='Create Task' componentData={{}} />
 		</div>
 	);
 }
