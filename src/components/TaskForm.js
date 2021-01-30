@@ -25,7 +25,6 @@ function TaskForm({ actionType, instanceData={} }) {
 	
 	const [users, setUsers] = useState([]);
 	useEffect(() => {
-		getTasks()
 		getUsers()
 			.then(response => response.json())
 			.then(responseData => { setUsers(responseData.users) })
