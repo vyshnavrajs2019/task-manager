@@ -4,11 +4,14 @@
 	&__Group {
 		margin: 1rem;
 	}
-	&__Input, &__SubmitButton {
+	&__Input, &__SubmitButton, &__DateTimeInput {
 		padding: 0.5rem;
 		width: 100%;
 		border: 1px solid #ccc;
 		background-color: #fff;
+	}
+	&__DateTimeInput {
+		width: 50%;
 	}
 	&__SubmitButton {
 		&:hover {
