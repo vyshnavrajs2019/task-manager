@@ -53,7 +53,7 @@ function TaskForm({ actionType, instanceData={}, setShowModal }) {
 			taskData.dueDate !== DUE_DATE_TIME_NOT_DEFINED && 
 			taskData.dueTime !== DUE_DATE_TIME_NOT_DEFINED
 			)
-			data.due_date = `${taskData.dueDate} ${taskData.dueTime}`;		
+			data.due_date = `${taskData.dueDate} ${taskData.dueTime}:00`;		
 		if (actionType === EDIT) {
 			data.taskid = instanceData.taskid;
 		}
