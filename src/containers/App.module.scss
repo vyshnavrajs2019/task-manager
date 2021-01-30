@@ -11,4 +11,28 @@
 		min-height: 100vh;
 		background-color: #fff;
 	}
+	&__Search {
+		margin-top: 1rem;
+		&Input {
+			width: 100%;
+			padding: 0.5rem;
+			border: 1px solid #ccc;
+			border-radius: 2px;
+		}
+	}
+	&__MenuHandler {
+		margin-top: 1rem;
+		border-top: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+		padding: 0.5rem 0rem;
+	}
+	&__MenuButton {
+		border: 1px solid #ccc;
+		background-color: #fff;
+		border-radius: 3px;
+		padding: 0.5rem;
+		&:hover {
+			background-color: #f3f3f3;
+		}
+	}
 }
