@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { priorities } from '../configurations/priorities';
-import { createTask, getUsers, getTasks, updateTask } from '../configurations/api';
+import { createTask, getUsers, updateTask } from '../configurations/api';
 import classes from './TaskForm.module.scss';
 
 export const EDIT = 'EDIT';
