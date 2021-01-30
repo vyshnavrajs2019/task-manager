@@ -20,7 +20,7 @@ function App() {
 			.catch(err => { alert('ERROR OCCURED'); console.log(err) })
 	}, []);
 
-	const taskList = priorities.map((priority, index) => <Tasks key={index} priority={priority} tasks={tasks} />);
+	const taskList = priorities.map((priority, index) => <Tasks key={index} search={search} priority={priority} tasks={tasks} />);
 
 	return (
 		<div className={classes.App}>

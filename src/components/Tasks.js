@@ -4,7 +4,7 @@ import { getUsers } from '../configurations/api';
 import Task from './Task';
 import classes from './Tasks.module.scss';
 
-function Tasks({ tasks, priority }) {
+function Tasks({ tasks, priority, search }) {
 	const [owners, setOwners] = useState([]);
 	
 	useEffect(() => {
@@ -15,7 +15,7 @@ function Tasks({ tasks, priority }) {
 	}, []);
 
 	const taskList = tasks
-						.filter(task => +task.priority === priority.value)
+						.filter(task => +task.priority === priority.value && task.message.toLowerCase().includes(search.toLowerCase()))
 						.map(task => <Task key={task.taskid} task={task} owners={owners} />)
 	return (
 		<div className={classes.Tasks}>
