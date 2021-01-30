@@ -8,7 +8,7 @@ export const EDIT = 'EDIT';
 
 const OWNER_NOT_DEFINED = '0';
 const PRIORITY_NOT_DEFINED = '0';
-const DUE_DATE_TIME_NOT_DEFINED = null;
+const DUE_DATE_TIME_NOT_DEFINED = '';
 
 function TaskForm({ actionType, instanceData={} }) {
 	let btnLabel = 'Create';
