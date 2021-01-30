@@ -22,7 +22,7 @@ function Task({ task, owners }) {
 			</div>
 			{taskOwner}
 			<div className={classes.Task__Date}>
-				<span>23rd August, 2021</span>
+				<span>{task.due_date}</span>
 			</div>
 		</div>
 	)
