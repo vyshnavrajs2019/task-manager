@@ -2,18 +2,25 @@ import React from 'react';
 
 import classes from './Task.module.scss';
 
-function Task() {
+function Task({ task, owners }) {
+	let taskOwner = null;
+	if (task.assigned_to) {
+		const owner = owners.find(owner => owner.id === task.assigned_to);
+		taskOwner = (
+			<div className={classes.Task__Owner}>
+				<div className={classes.Task__OwnerPicture} style={{ backgroundImage: `url(${owner?.picture || ''})` }}>
+				</div>
+				<span>{task.assigned_name}</span>
+			</div>
+		)
+	}
+
 	return (
 		<div className={classes.Task}>
 			<div className={classes.Task__Title}>
-				<span>Title goes here!!</span>
+				<span>{task.message}</span>
 			</div>
-			<div className={classes.Task__Owner}>
-				<div className={classes.Task__OwnerPicture} style={{backgroundImage: `url(https://www.gstatic.com/tv/thumb/persons/589228/589228_v9_ba.jpg)`}}>
-					
-				</div>
-				<span>Owner name</span>
-			</div>
+			{taskOwner}
 			<div className={classes.Task__Date}>
 				<span>23rd August, 2021</span>
 			</div>
