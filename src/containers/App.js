@@ -15,6 +15,7 @@ function App() {
 	const [search, setSearch] = useState('');
 	const [tasks, setTasks] = useState([]);
 	const [showLoader, setShowLoader] = useState(false);
+	const [dragTask, setDragTask] = useState(null);
 
 	const loadTasks = () => {
 		setShowLoader(true);
@@ -36,7 +37,7 @@ function App() {
 		setShowModal(true);
 	}
 
-	const taskList = priorities.map((priority, index) => <Tasks key={index} search={search} priority={priority} tasks={tasks} openEditTaskModal={openEditTaskModal} loadTasks={loadTasks} setShowLoader={setShowLoader} />);
+	const taskList = priorities.map((priority, index) => <Tasks key={index} search={search} priority={priority} tasks={tasks} openEditTaskModal={openEditTaskModal} loadTasks={loadTasks} setShowLoader={setShowLoader} dragTask={dragTask} setDragTask={setDragTask} />);
 
 	return (
 		<div className={classes.App}>

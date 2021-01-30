@@ -3,7 +3,7 @@ import { deleteTask } from '../configurations/api';
 
 import classes from './Task.module.scss';
 
-function Task({ task, owners, openEditTaskModal, loadTasks, setShowLoader }) {
+function Task({ task, owners, openEditTaskModal, loadTasks, setShowLoader, dragTask, setDragTask }) {
 	let taskOwner = <span style={{fontSize: 12, color: 'grey'}}>No task owner</span>;
 	if (task.assigned_to) {
 		const owner = owners.find(owner => owner.id === task.assigned_to);
@@ -23,8 +23,12 @@ function Task({ task, owners, openEditTaskModal, loadTasks, setShowLoader }) {
 			.catch(err => { setShowLoader(false); alert('ERROR OCCURED'); console.log(err) })
 	}
 
+	const handleDragStart = () => {
+		setDragTask(task);
+	}
+
 	return (
-		<div className={classes.Task}>
+		<div className={classes.Task} draggable={true} onDragStart={handleDragStart}>
 			<div className={classes.Task__Title}>
 				<span>{task.message}</span>
 			</div>
