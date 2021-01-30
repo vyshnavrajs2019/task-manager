@@ -1,8 +1,9 @@
 import React from 'react';
+import { deleteTask } from '../configurations/api';
 
 import classes from './Task.module.scss';
 
-function Task({ task, owners }) {
+function Task({ task, owners, openEditTaskModal, loadTasks, setShowLoader }) {
 	let taskOwner = <span style={{fontSize: 12, color: 'grey'}}>No task owner</span>;
 	if (task.assigned_to) {
 		const owner = owners.find(owner => owner.id === task.assigned_to);
@@ -13,6 +14,13 @@ function Task({ task, owners }) {
 				<span>{task.assigned_name}</span>
 			</React.Fragment>
 		)
+	}
+
+	const deleteTaskAndReload = () => {
+		setShowLoader(true);
+		deleteTask({taskid: task.id})
+			.then(loadTasks)
+			.catch(err => { setShowLoader(false); alert('ERROR OCCURED'); console.log(err) })
 	}
 
 	return (
@@ -28,6 +36,10 @@ function Task({ task, owners }) {
 			</div>
 			<div className={classes.Task__Date}>
 				<span>Created: {task.created_on}</span>
+			</div>
+			<div className={classes.Task__Footer}>
+				<span onClick={() => openEditTaskModal(task)}>EDIT</span>
+				<span onClick={deleteTaskAndReload}>DELETE</span>
 			</div>
 		</div>
 	)

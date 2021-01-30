@@ -4,7 +4,7 @@ import { getUsers } from '../configurations/api';
 import Task from './Task';
 import classes from './Tasks.module.scss';
 
-function Tasks({ tasks, priority, search }) {
+function Tasks({ tasks, priority, search, openEditTaskModal, loadTasks, setShowLoader }) {
 	const [owners, setOwners] = useState([]);
 	
 	useEffect(() => {
@@ -16,7 +16,7 @@ function Tasks({ tasks, priority, search }) {
 
 	const taskList = tasks
 						.filter(task => +task.priority === priority.value && task.message.toLowerCase().includes(search.toLowerCase()))
-						.map(task => <Task key={task.taskid} task={task} owners={owners} />)
+						.map(task => <Task key={task.id} task={task} owners={owners} openEditTaskModal={openEditTaskModal} loadTasks={loadTasks} setShowLoader={setShowLoader} />)
 	return (
 		<div className={classes.Tasks}>
 			<h3>{priority.name}</h3>

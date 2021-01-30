@@ -5,12 +5,13 @@ import { createTask, getUsers, updateTask } from '../configurations/api';
 import classes from './TaskForm.module.scss';
 
 export const EDIT = 'EDIT';
+export const ADD = 'ADD';
 
 const OWNER_NOT_DEFINED = '0';
 const PRIORITY_NOT_DEFINED = '0';
 const DUE_DATE_TIME_NOT_DEFINED = '';
 
-function TaskForm({ actionType, instanceData={}, setShowModal }) {
+function TaskForm({ actionType, instanceData={}, setShowModal, loadTasks, setShowLoader }) {
 	let btnLabel = 'Create';
 	if (actionType === EDIT) {
 		btnLabel = 'Update';
@@ -55,10 +56,13 @@ function TaskForm({ actionType, instanceData={}, setShowModal }) {
 			)
 			data.due_date = `${taskData.dueDate} ${taskData.dueTime}:00`;		
 		if (actionType === EDIT) {
-			data.taskid = instanceData.taskid;
+			data.taskid = instanceData.id;
 		}
 		const handler = actionType === EDIT ? updateTask : createTask;
-		handler(data);
+		setShowLoader(true);
+		handler(data)
+			.then(loadTasks)
+			.catch(() => setShowLoader(false));
 		setShowModal(false);
 	}
 
