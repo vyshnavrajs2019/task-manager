@@ -4,12 +4,8 @@ import Modal from '../components/Modal';
 import TaskForm from '../components/TaskForm';
 import Tasks from '../components/Tasks';
 import classes from './App.module.scss';
+import { priorities } from '../configurations/priorities';
 
-const HIGH_PRIORITY = 'HIGH';
-const MEDIUM_PRIORITY = 'MEDIUM';
-const LOW_PRIORITY = 'LOW';
-
-const priorities= [HIGH_PRIORITY, MEDIUM_PRIORITY, LOW_PRIORITY];
 
 function App() {
 	const tasks = priorities.map((priority, index) => <Tasks key={index} priority={priority} />);
