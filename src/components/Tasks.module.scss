@@ -4,4 +4,10 @@
 	@extend .flex-fill;
 	border: 1px solid #ccc;
 	padding: 0.5rem;
+	& > * {
+		margin-bottom: 0.5rem;
+	}
+	& > *:last-child {
+		margin-bottom: 0rem;
+	}
 }
